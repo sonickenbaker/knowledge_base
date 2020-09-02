@@ -22,3 +22,4 @@ ldapsearch -o ldif-wrap=no -x -W -D "<bind_dn>" -b "<base_dn>" userPassword | gr
 ```
 sudo ldapsearch -H ldapi:// -LLL -Q -Y EXTERNAL -b "cn=config" "(olcRootDN=*)" dn olcRootDN olcRootPW
 ```
+
