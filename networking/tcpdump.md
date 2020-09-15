@@ -9,9 +9,9 @@
 12433 packets received by filter
 3832 packets dropped by kernel
 ```
-packets captured: packets tracked by tcpdump
-packets received by filter: packets received before applying the filter
-packets dropped by kernel: dropped because the tcpdump buffer was full (can be increased with the `-B` option)
+- packets captured: packets tracked by tcpdump
+- packets received by filter: packets received before applying the filter
+- packets dropped by kernel: dropped because the tcpdump buffer was full (can be increased with the `-B` option)
 
 ## TCP dump and firewall (Iptables)
 Incoming traffic:
