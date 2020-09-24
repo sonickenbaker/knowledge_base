@@ -3,7 +3,7 @@
 - first match rule: chain traversing stop at first match
 
 ## Tables
-![image info](./iptables-diagram.png)
+![image info](./images/iptables-diagram.png)
 
 See the tables:
 - filter: `iptables -n filter -L -v`
@@ -12,7 +12,7 @@ See the tables:
 - raw: `iptables -n raw -L -v`
 
 ## Flow
-![image info](./Iptables_diagram.png)
+![image info](./images/Iptables_diagram.png)
 
 - NAT can alter the routing decision for an incoming packet (FORWARD chain or INPUT chain?)
 

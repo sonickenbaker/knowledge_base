@@ -3,6 +3,7 @@
 
 ## TCP finite state machine
 http://www.tcpipguide.com/free/t_TCPOperationalOverviewandtheTCPFiniteStateMachineF-2.html
+![image info](./images/tcpfsm.png)
 
 ## Userland TCP
 Source: https://arxiv.org/pdf/1901.01863.pdf
