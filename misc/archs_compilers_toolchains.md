@@ -53,7 +53,10 @@ and check for "vfp" is present in "Features" line
 Complete answer here: https://unix.stackexchange.com/questions/184874/how-do-determine-whether-linux-board-is-using-hardware-fpu-or-not
 
 ## CPU info and compile options
-Some examples on how to set-up compile options based on the cpu info.
+Here https://unix.stackexchange.com/questions/43539/what-do-the-flags-in-proc-cpuinfo-mean a very detailed demystification 
+of cpu's flags.
+
+Hereunder some examples for ARM on how to set-up compile options based on the cpu info.
 
 BeagleBone Black:
 ```
