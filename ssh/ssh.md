@@ -1,6 +1,13 @@
 # SSH
 
-## Reverse tunnel
+## Local port forwarding
+     -L [bind_address:]port:host:hostport
+     -L [bind_address:]port:remote_socket
+     -L local_socket:host:hostport
+     -L local_socket:remote_socket
+
+
+## Remote port forwarding
 With a reverse tunnel an encrypted channel is established between the local host and remote host.
 ```
 <remote_address_to_bind_to>:<remote_port> <-------> <local_address_to_bind_to>:<local_port>
