@@ -2,7 +2,7 @@
 This is a collections of possible ways to flash images on disk and read raw data from them.
 
 ## The dd command
-The dd command is the best tool to flash images on disks. Normally would be used like that:
+The dd command is the best tool to flash images on disks.
 ```bash
 dd if=<source> of=<destination>
 # Example
@@ -51,5 +51,22 @@ hexdump -n 512 -s 0x0000000 -C /dev/mmcblk0
 ```
 The leftmost column it's a byte counter in hexadecimal form. Each row is composed by 8bytes. Those 8 bytes are represented in hexadecimal from in the second (first 4 bytes) and third (second 4 bytes) column. The final column is the ASCII representation for each one of the 8 bytes of the row. If there's one or more row/s where every byte is 0 a `*` is placed.
 
+## The fdisk command
+The `fdisk` command is a really powerful tool that can be used to rewrite the MBR and partition the disk space. For the time being will focus on checking the MBR of a disk.
+```bash
+root@localhost:$ fdisk -l /dev/mmcblk1
+Disk /dev/mmcblk1: 7.3 GiB, 7818182656 bytes, 15269888 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x27267eb1
 
-
+Device         Boot   Start      End  Sectors  Size Id Type
+/dev/mmcblk1p1 *     524288   786431   262144  128M  c W95 FAT32 (LBA)
+/dev/mmcblk1p2       786432  3932159  3145728  1.5G 83 Linux
+/dev/mmcblk1p3      3932160 15269531 11337372  5.4G 83 Linux
+```
+The smallest unit of the disk is the sector (here 512 bytes).
+All the numbers reported for Start, End and Sectors are the number of sectors. This means that to get the partition size for partition 3, you have to perform: `11337372 * 512 = 5804734464 bytes`.
+As you may notice, the first partition does not start at the beginning of the disk. This is done to left room for the MBR (first 512 bytes on the disk) and the second stage bootloader (Example: U-Boot generally starting at byte 8192). Generally 100MB are left before the first partition but this may vary (as here where ~250MB are left between the beginning of the disk and the beginning of the first partition).
